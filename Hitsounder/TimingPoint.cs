@@ -3,7 +3,7 @@
     /// <summary>
     /// A simplified internal representation of an osu! timing point.
     /// </summary>
-    internal struct TimingPoint
+    public struct TimingPoint
     {
         /// <summary>
         /// The offset from the start of the beatmap in milliseconds.
