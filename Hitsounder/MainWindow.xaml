@@ -1,12 +1,45 @@
-﻿<Window x:Class="Hitsounder.MainWindow"
+﻿<mah:MetroWindow x:Class="Hitsounder.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hitsounder"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        TitleCharacterCasing="Normal"
+        Title="Hitsounder" Height="125" Width="250" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4px"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnPreview" Content="Preview!" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="btnHitsound" Content="Hitsound!" Grid.Row="4" Grid.Column="2"/>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4px"/>
+                <ColumnDefinition Width="20px"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="txtSkinFolder" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark="skin folder"/>
+            <Button x:Name="btnSelectSkin" Content="..." Grid.Column="2" Click="btnSelectSkin_Click"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4px"/>
+                <ColumnDefinition Width="20px"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="txtMap" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark=".osu file"/>
+            <Button x:Name="btnSelectMap" Content="..." Grid.Column="2" Click="btnSelectMap_Click"/>
+        </Grid>
     </Grid>
-</Window>
+</mah:MetroWindow>
