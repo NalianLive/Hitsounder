@@ -7,7 +7,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         TitleCharacterCasing="Normal"
-        Title="Hitsounder" Height="125" Width="250" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Hitsounder" Height="125" Width="500" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid Margin="4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="4px"/>
                 <ColumnDefinition Width="20px"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="txtMap" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark=".osu file"/>
+            <TextBox x:Name="txtMap" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark="osu! beatmap"/>
             <Button x:Name="btnSelectMap" Content="..." Grid.Column="2" Click="btnSelectMap_Click"/>
         </Grid>
     </Grid>

@@ -15,6 +15,7 @@ namespace Hitsounder
         public MainWindow()
         {
             InitializeComponent();
+            txtSkinFolder.Text = Properties.Settings.Default.lastSkin;
         }
 
         private void btnSelectMap_Click(object sender, RoutedEventArgs e)
@@ -23,7 +24,17 @@ namespace Hitsounder
             {
                 ofd.Multiselect = false;
                 ofd.EnsurePathExists = true;
-                ofd.ShowDialog();
+                ofd.Title = "Select osu! Beatmap";
+                var filter = new CommonFileDialogFilter
+                {
+                    DisplayName = "osu! beatmap",
+                    ShowExtensions = true
+                };
+                filter.Extensions.Add("osu");
+                ofd.Filters.Add(filter);
+
+                if (ofd.ShowDialog() != CommonFileDialogResult.Ok) return;
+                txtMap.Text = ofd.FileName;
             }
         }
 
@@ -34,6 +45,7 @@ namespace Hitsounder
                 ofd.IsFolderPicker = true;
                 ofd.Multiselect = false;
                 ofd.EnsurePathExists = true;
+                ofd.Title = "Select osu! Skin";
 
                 ofd.FileOk += (s, param) =>
                 {
@@ -53,7 +65,10 @@ namespace Hitsounder
                         );
                 };
 
-                ofd.ShowDialog();
+                if (ofd.ShowDialog() != CommonFileDialogResult.Ok) return;
+                txtSkinFolder.Text = ofd.FileName;
+                Properties.Settings.Default.lastSkin = ofd.FileName;
+                Properties.Settings.Default.Save();
             }
         }
     }
