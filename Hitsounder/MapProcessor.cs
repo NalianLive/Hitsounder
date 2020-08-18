@@ -38,7 +38,7 @@ namespace Hitsounder
 
         public static void Hitsound(string mapPath, string skinPath)
         {
-            LoadHitsounds(skinPath);
+            if (skinPath != null) LoadHitsounds(skinPath);
 
             Beatmap map;
             try
