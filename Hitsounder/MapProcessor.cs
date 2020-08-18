@@ -77,7 +77,10 @@ namespace Hitsounder
             if (failed)
                 return;
 
-            WaveFileWriter.CreateWaveFile16("hitsounded.wav", 
+            if (!File.Exists("output")) Directory.CreateDirectory("output");
+
+            WaveFileWriter.CreateWaveFile16(
+                $"output/{map.MetadataSection.Artist} - {map.MetadataSection.Title} ({map.MetadataSection.Creator}) [{map.MetadataSection.Version}].wav", 
                 new MixingWaveProvider32(hitsounds).ToSampleProvider());
         }
 
