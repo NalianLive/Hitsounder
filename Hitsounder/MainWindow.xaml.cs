@@ -82,7 +82,7 @@ namespace Hitsounder
         {
             e.CanExecute = 
                 (txtMap.Text.Length > 0 && File.Exists(txtMap.Text)) &&
-                (txtSkinFolder.Text.Length > 0 && File.Exists(Path.Combine(txtSkinFolder.Text, "skin.ini")));
+                (txtSkinFolder.Text.Length <= 0 || File.Exists(Path.Combine(txtSkinFolder.Text, "skin.ini")));
         }
 
         private async void btnHitsound_Execute(object sender, ExecutedRoutedEventArgs e)
