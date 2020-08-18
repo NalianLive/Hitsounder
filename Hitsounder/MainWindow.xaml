@@ -22,14 +22,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button x:Name="btnPreview" Content="Preview!" Grid.Row="4" Grid.Column="0"/>
-        <Button x:Name="btnHitsound" Content="Hitsound!" Grid.Row="4" Grid.Column="2"/>
+        <Button x:Name="btnHitsound" Content="Hitsound!" Grid.Row="4" Grid.Column="2" Command="Save">
+            <Button.CommandBindings>
+                <CommandBinding Command="Save"
+                                Executed="btnHitsound_Execute"
+                                CanExecute="btnHitsound_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
         <Grid Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="4px"/>
                 <ColumnDefinition Width="20px"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="txtSkinFolder" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark="skin folder"/>
+            <TextBox x:Name="txtSkinFolder" Text="" Grid.Column="0" mah:TextBoxHelper.Watermark="skin folder" TextChanged="txtSkinFolder_TextChanged"/>
             <Button x:Name="btnSelectSkin" Content="..." Grid.Column="2" Click="btnSelectSkin_Click"/>
         </Grid>
         <Grid Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
