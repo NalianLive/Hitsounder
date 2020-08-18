@@ -79,9 +79,14 @@ namespace Hitsounder
 
             if (!File.Exists("output")) Directory.CreateDirectory("output");
 
+            var file =
+                $"output/{map.MetadataSection.Artist} - {map.MetadataSection.Title} ({map.MetadataSection.Creator}) [{map.MetadataSection.Version}].wav";
+
             WaveFileWriter.CreateWaveFile16(
-                $"output/{map.MetadataSection.Artist} - {map.MetadataSection.Title} ({map.MetadataSection.Creator}) [{map.MetadataSection.Version}].wav", 
+                file, 
                 new MixingWaveProvider32(hitsounds).ToSampleProvider());
+
+            System.Diagnostics.Process.Start("explorer.exe", string.Format("/select,\"{0}\"", Path.GetFullPath(file)));
         }
 
         private static void LoadHitsounds(string skinPath)
